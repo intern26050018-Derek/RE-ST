@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>RE:ST — AI Sleep &amp; Recovery Companion</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0f131c;color:#dfe2ef;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"outline-variant":"#3c4a46","secondary-fixed-dim":"#c0c1ff","surface-variant":"#31353f","on-primary-fixed":"#00201c","on-tertiary-fixed":"#2a1700","secondary-container":"#3131c0","surface-container":"#1c1f29","primary":"#57f1db","on-tertiary":"#472a00","primary-fixed-dim":"#3cddc7","on-secondary":"#1000a9","on-secondary-fixed-variant":"#2f2ebe","on-surface-variant":"#bacac5","surface-container-highest":"#31353f","tertiary":"#ffd29f","tertiary-fixed":"#ffddb8","surface-container-low":"#181b25","on-background":"#dfe2ef","on-primary":"#003731","error":"#ffb4ab","inverse-surface":"#dfe2ef","on-error-container":"#ffdad6","on-tertiary-container":"#6d4400","error-container":"#93000a","on-error":"#690005","tertiary-container":"#ffad3a","background":"#0f131c","tertiary-fixed-dim":"#ffb95f","surface-dim":"#0f131c","on-secondary-fixed":"#07006c","on-tertiary-fixed-variant":"#653e00","surface-container-high":"#262a34","secondary-fixed":"#e1e0ff","on-primary-container":"#00574d","inverse-on-surface":"#2c303a","surface-bright":"#353943","outline":"#859490","primary-fixed":"#62fae3","on-primary-fixed-variant":"#005047","inverse-primary":"#006b5f","surface-container-lowest":"#0a0e17","surface-tint":"#3cddc7","primary-container":"#2dd4bf","on-secondary-container":"#b0b2ff","surface":"#0f131c","secondary":"#c0c1ff","on-surface":"#dfe2ef"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{gutter:"1rem","space-xs":"0.25rem",margin:"1.5rem","space-md":"1rem","margin-mobile":"1rem","space-xl":"2rem","space-sm":"0.5rem","space-lg":"1.5rem","gutter-mobile":"0.75rem"},fontFamily:{"headline-lg":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"headline-xl-mobile":["Plus Jakarta Sans"],"vital-metric-md":["Plus Jakarta Sans"],"label-caps":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"vital-metric-lg":["Plus Jakarta Sans"],"headline-xl":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"evidence-tag":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"]},fontSize:{"headline-lg":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"600"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}],"headline-xl-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"vital-metric-md":["28px",{lineHeight:"32px",letterSpacing:"-0.02em",fontWeight:"600"}],"label-caps":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"400"}],"vital-metric-lg":["44px",{lineHeight:"48px",letterSpacing:"-0.03em",fontWeight:"700"}],"headline-xl":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],"headline-md":["20px",{lineHeight:"28px",fontWeight:"600"}],"evidence-tag":["11px",{lineHeight:"14px",fontWeight:"500"}],"body-sm":["12px",{lineHeight:"16px",fontWeight:"400"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-background font-body-md text-on-surface min-h-screen relative selection:bg-primary-container selection:text-on-primary-container"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_10px_30px_-10px_rgba(45,212,191,0.08)]"><div class="px-gutter-mobile pt-space-xs pb-1 flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps"><span class="tracking-wider font-semibold text-on-surface">09:41</span><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-[14px]">signal_cellular_alt</span><span class="material-symbols-outlined text-[14px]">wifi</span><span class="material-symbols-outlined text-[14px]">battery_charging_full</span></div></div><div class="h-16 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="RE:ST Crescent Moon &amp; Circadian Pulse Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1U3RZJSh_hnqF8J1hRHX-yGK1fqtBnLUsiQsbMDYPXFQBuZzOkHfu5JTrs9ay6Q3Ky59k59fLGxNBw8bH2N4DJAtBxPOzZ45_D1VeVPNHsoBDU-7BHa6jLZhbUp2LT8Nj4B974pZFfErSlshDfl0dzO48D2fgjJf5jGqwym9Usr22NMB9CPv-aqde3Gn9dpDLPjqKdcI3Gi6qxDpY9-rjBVMDk2XYggdlmtOL1cPFzf-c28heTLIZAdKQ"/><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-on-surface leading-none">RE:ST</span><span class="font-label-caps text-label-caps text-primary tracking-widest uppercase">Today</span></div></div><div class="flex items-center gap-space-xs"><div class="h-8 px-space-sm rounded-full bg-surface-container-high flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="font-evidence-tag text-evidence-tag text-on-surface-variant">Circadian 14h</span></div><a class="w-11 h-11 flex items-center justify-center text-on-surface-variant hover:text-primary transition-colors" data-path="device-hub" href="#"><span class="material-symbols-outlined text-[20px]">tune</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-[0_0_12px_rgba(87,241,219,0.3)]"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-24 bg-surface min-h-screen"><div class="w-full flex-1 px-margin-mobile pt-space-lg"><div class="flex flex-col w-full space-y-4 pb-12">
+<!-- Context & Tier Strip -->
+<div class="flex items-center justify-between px-1">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-semibold">Morning Brief</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Thursday, Oct 24</h1>
+</div>
+<div class="flex items-center gap-2 bg-surface-container-high px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary">auto_awesome</span>
+<span class="font-evidence-tag text-evidence-tag text-on-surface-variant">Explorer · 18 nights</span>
+</div>
+</div>
+<!-- FR-2.5 & FR-12: Session Verification & Night Auditor Alert Card -->
+<section class="relative overflow-hidden rounded-xl bg-surface-container p-space-md shadow-[0_12px_28px_-8px_rgba(0,0,0,0.45)]" id="auditor-card">
+<div class="flex items-start justify-between gap-2 mb-3">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">watch</span>
+</div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-body-md text-body-md text-on-surface font-medium">Apple Watch Series 9</span>
+<span class="hidden items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-evidence-tag text-[10px]" id="verified-badge">
+<span class="material-symbols-outlined text-[11px]" style="font-variation-settings: 'FILL' 1;">check_circle</span> Verified
+            </span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">11:42 PM – 7:10 AM (7h 28m)</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps px-2 py-0.5 rounded bg-surface-container-highest text-outline tracking-wider uppercase">Auto-Sync</span>
+</div>
+<!-- Conflict Warning Box -->
+<div class="p-3 rounded-lg bg-surface-container-low mb-3" id="conflict-box">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-tertiary-container text-[20px] shrink-0 mt-0.5">night_shelter</span>
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm font-semibold text-tertiary-fixed-dim">Conflict: Phone active until 1:04 AM</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Detected +82m foreground screen activity. Did you drift off around 1:04 AM instead?
+          </p>
+</div>
+</div>
+</div>
+<!-- Verification Actions -->
+<div class="flex flex-wrap items-center gap-2" id="action-pills">
+<button class="flex-1 min-w-[120px] h-10 px-3 rounded-full bg-primary text-on-primary font-body-sm text-body-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm active:scale-95 transition-transform" onclick="resolveVerification('1:04 AM (6h 06m)')">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Confirm 1:04 AM</span>
+</button>
+<button class="h-10 px-3.5 rounded-full bg-surface-container-highest text-on-surface font-body-sm text-body-sm hover:text-primary active:scale-95 transition-all" onclick="resolveVerification('11:42 PM (7h 28m)')">
+        Keep 11:42 PM
+      </button>
+<button aria-label="Edit time manually" class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant hover:text-on-surface flex items-center justify-center active:scale-95 transition-all" onclick="openEditModal()">
+<span class="material-symbols-outlined text-[18px]">edit_calendar</span>
+</button>
+</div>
+<!-- Feedback banner after confirmation -->
+<div class="hidden items-center justify-between py-2 px-3 rounded-lg bg-surface-container-high text-primary text-body-sm font-body-sm" id="resolved-banner">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Session calibrated to <strong class="text-on-surface" id="resolved-time">1:04 AM</strong></span>
+</span>
+<button class="text-on-surface-variant hover:text-on-surface text-evidence-tag font-evidence-tag underline" onclick="resetVerification()">Change</button>
+</div>
+</section>
+<!-- FR-3.1 & FR-3.2: Recovery Snapshot & Within-Person Delta -->
+<section class="rounded-xl bg-surface-container p-space-lg relative overflow-hidden shadow-[0_10px_30px_-10px_rgba(45,212,191,0.12)]">
+<!-- Ambient glowing aura -->
+<div class="absolute -right-12 -top-12 w-44 h-44 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-10 bottom-0 w-36 h-36 bg-secondary-container/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Restorative Index</span>
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">Morning Biological Read</span>
+</div>
+<!-- Non-judgmental delta pill -->
+<div class="flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container-highest text-primary font-evidence-tag text-evidence-tag">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+6% vs 14d baseline</span>
+</div>
+</div>
+<!-- Main Gauge / Metric Split -->
+<div class="flex items-center gap-5 my-1">
+<!-- Circular Biological Gauge SVG -->
+<div class="relative w-24 h-24 shrink-0 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<!-- Track -->
+<circle class="text-surface-variant" cx="50" cy="50" fill="none" opacity="0.6" r="40" stroke="currentColor" stroke-width="7"></circle>
+<!-- Baseline reference notch -->
+<circle class="text-secondary" cx="50" cy="50" fill="none" opacity="0.4" r="40" stroke="currentColor" stroke-dasharray="2 12" stroke-width="7"></circle>
+<!-- Active Fill: 78% of ~251.2 circumference is ~196 -->
+<circle class="text-primary" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="55" stroke-linecap="round" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+<span class="font-vital-metric-md text-vital-metric-md text-on-surface leading-none font-bold">78<span class="text-[14px] font-normal text-primary leading-none">%</span></span>
+<span class="font-label-caps text-[9px] uppercase tracking-wider text-on-surface-variant mt-0.5">Optimal</span>
+</div>
+</div>
+<div class="flex flex-col justify-center gap-1 min-w-0">
+<h2 class="font-headline-md text-headline-md text-on-surface leading-tight truncate">Autonomic Equilibrium</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+            Parasympathetic rebound occurred smoothly between 3:15 AM and 5:40 AM. Your nervous system is primed for focused work.
+          </p>
+</div>
+</div>
+<!-- Passive Vitals Comparison Grid (FR-3.2) -->
+<div class="grid grid-cols-3 gap-2 pt-2">
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-caps text-label-caps uppercase">RHR</span>
+<span class="material-symbols-outlined text-[14px] text-primary">favorite</span>
+</div>
+<div class="font-vital-metric-md text-[20px] leading-tight text-on-surface font-semibold">54 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">bpm</span></div>
+<span class="font-evidence-tag text-[10px] text-primary mt-0.5">-3 bpm baseline</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-caps text-label-caps uppercase">HRV</span>
+<span class="material-symbols-outlined text-[14px] text-secondary">ecg_heart</span>
+</div>
+<div class="font-vital-metric-md text-[20px] leading-tight text-on-surface font-semibold">62 <span class="font-body-sm text-body-sm text-on-surface-variant font-normal">ms</span></div>
+<span class="font-evidence-tag text-[10px] text-secondary mt-0.5">+8 ms baseline</span>
+</div>
+<div class="bg-surface-container-low p-2.5 rounded-lg flex flex-col">
+<div class="flex items-center justify-between text-on-surface-variant mb-1">
+<span class="font-label-caps text-label-caps uppercase">Resp</span>
+<span class="material-symbols-outlined text-[14px] text-tertiary">air</span>
+</div>
+<div class="font-vital-metric-md text-[20px] leading-tight text-on-surface font-semibold">14.2 <span class="font-body-sm text-[11px] text-on-surface-variant font-normal">rpm</span></div>
+<span class="font-evidence-tag text-[10px] text-outline mt-0.5">Optimal stable</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FR-3.5: Subjective Morning Check-in (1-Tap Fast Rating) -->
+<section class="rounded-xl bg-surface-container p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">psychology_alt</span>
+<h2 class="font-body-lg text-body-lg text-on-surface font-semibold">How do you feel this morning?</h2>
+</div>
+<span class="font-label-caps text-label-caps text-primary uppercase hidden" id="subjective-ack">Logged</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+      Calibrates cognitive strain predictions against personal perceived alertness.
+    </p>
+<!-- 5-stage intuitive rating pills -->
+<div class="grid grid-cols-5 gap-1.5" id="energy-rating-group">
+<button class="rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="selectRating(this, 'Drained')">
+<span class="text-lg mb-0.5">😴</span>
+<span class="font-evidence-tag text-[10px] tracking-tight">1 Drained</span>
+</button>
+<button class="rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="selectRating(this, 'Sluggish')">
+<span class="text-lg mb-0.5">🥱</span>
+<span class="font-evidence-tag text-[10px] tracking-tight">2 Sluggish</span>
+</button>
+<button class="rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="selectRating(this, 'Steady')">
+<span class="text-lg mb-0.5">🙂</span>
+<span class="font-evidence-tag text-[10px] tracking-tight">3 Steady</span>
+</button>
+<button class="rating-btn ring-0 flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-highest text-primary font-semibold transition-colors active:scale-95" onclick="selectRating(this, 'Restored')">
+<span class="text-lg mb-0.5">✨</span>
+<span class="font-evidence-tag text-[10px] tracking-tight">4 Restored</span>
+</button>
+<button class="rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95" onclick="selectRating(this, 'Peak')">
+<span class="text-lg mb-0.5">⚡</span>
+<span class="font-evidence-tag text-[10px] tracking-tight">5 Peak</span>
+</button>
+</div>
+</section>
+<!-- FR-3.3: 3 Likely Drivers of Sleep Architecture -->
+<section class="rounded-xl bg-surface-container p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">insights</span>
+<h2 class="font-body-lg text-body-lg text-on-surface font-semibold">3 Likely Drivers Last Night</h2>
+</div>
+<span class="font-evidence-tag text-evidence-tag text-on-surface-variant">N=18 Model</span>
+</div>
+<div class="space-y-2.5">
+<!-- Driver 1 -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">coffee</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Caffeine cutoff at 2:00 PM respected</span>
+<span class="font-evidence-tag text-evidence-tag text-primary shrink-0">+8% HRV</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Sleep onset latency was 11m shorter than your baseline average (matched 6 tracked nights).
+          </p>
+</div>
+</div>
+<!-- Driver 2 -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-secondary/10 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">phonelink_off</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Screen wind-down active 45m prior</span>
+<span class="font-evidence-tag text-evidence-tag text-secondary shrink-0">+14m Deep</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Absence of high-lux light lowered core temperature decline rate by 18 minutes.
+          </p>
+</div>
+</div>
+<!-- Driver 3 -->
+<div class="p-3 rounded-lg bg-surface-container-low flex items-start gap-3">
+<div class="w-7 h-7 rounded-full bg-tertiary/10 text-tertiary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px]">restaurant</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between gap-1">
+<span class="font-body-sm text-body-sm font-semibold text-on-surface truncate">Evening meal ended 3.5h before bed</span>
+<span class="font-evidence-tag text-evidence-tag text-tertiary-fixed shrink-0">Optimal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+            Minimal nocturnal heart rate spikes; vascular digestion burden dropped before midnight.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- FR-3.4: Today's Single AI Recommendation -->
+<section class="rounded-xl bg-gradient-to-br from-surface-container via-surface-container to-surface-container-high p-space-md shadow-md">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-primary font-semibold">Circadian Action Plan</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface leading-tight mb-2">
+      Optimal cognitive peak: 10:30 AM – 1:30 PM
+    </h3>
+<div class="flex items-start gap-2.5 text-on-surface-variant font-body-sm text-body-sm bg-surface-container-lowest/60 p-3 rounded-lg mb-3">
+<span class="material-symbols-outlined text-[18px] text-tertiary shrink-0 mt-0.5">timer</span>
+<span>
+        Your prefrontal alertness peaks during this 3-hour window. Prioritize complex analytical tasks; keep water intake steady, and reserve your caffeine curfew strictly for <strong>3:30 PM</strong>.
+      </span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-evidence-tag text-evidence-tag text-on-surface-variant">Aligned with ultradian cycle #2</span>
+</div>
+<button class="h-8 px-3 rounded-full bg-surface-container-highest text-on-surface text-evidence-tag font-evidence-tag hover:text-primary active:scale-95 transition-all flex items-center gap-1">
+<span>Add to Focus</span>
+<span class="material-symbols-outlined text-[14px]">calendar_today</span>
+</button>
+</div>
+</section>
+<!-- FR-4: Quick Context Logger Strip -->
+<section class="space-y-2">
+<div class="flex items-center justify-between px-1">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Quick Context Logger</span>
+<span class="font-evidence-tag text-evidence-tag text-outline">Tap to log</span>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 -mx-margin-mobile px-margin-mobile scrollbar-none">
+<!-- Action 1 -->
+<button class="group shrink-0 h-9 px-3 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm flex items-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[16px] text-primary group-[.active]:text-on-primary">fitness_center</span>
+<span>+ Workout</span>
+</button>
+<!-- Action 2 -->
+<button class="group shrink-0 h-9 px-3 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm flex items-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[16px] text-tertiary group-[.active]:text-on-primary">local_cafe</span>
+<span>+ Coffee (1st)</span>
+</button>
+<!-- Action 3 -->
+<button class="group shrink-0 h-9 px-3 rounded-full bg-surface-container text-on-surface font-body-sm text-body-sm flex items-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[16px] text-secondary group-[.active]:text-on-primary">bolt</span>
+<span>+ High Stress</span>
+</button>
+<!-- Action 4: Unwell toggle -->
+<button class="group shrink-0 h-9 px-3 rounded-full bg-surface-container text-on-surface-variant font-body-sm text-body-sm flex items-center gap-1.5 hover:bg-surface-container-high active:scale-95 transition-all" onclick="toggleChip(this)">
+<span class="material-symbols-outlined text-[16px] text-error group-[.active]:text-on-primary">healing</span>
+<span>Felt unwell</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  function resolveVerification(newTime) {
+    const conflictBox = document.getElementById('conflict-box');
+    const actionPills = document.getElementById('action-pills');
+    const resolvedBanner = document.getElementById('resolved-banner');
+    const resolvedTime = document.getElementById('resolved-time');
+    const verifiedBadge = document.getElementById('verified-badge');
+
+    if (conflictBox) conflictBox.classList.add('hidden');
+    if (actionPills) actionPills.classList.add('hidden');
+    if (resolvedTime) resolvedTime.textContent = newTime;
+    if (resolvedBanner) resolvedBanner.classList.remove('hidden');
+    if (verifiedBadge) verifiedBadge.classList.remove('hidden');
+  }
+
+  function resetVerification() {
+    const conflictBox = document.getElementById('conflict-box');
+    const actionPills = document.getElementById('action-pills');
+    const resolvedBanner = document.getElementById('resolved-banner');
+    const verifiedBadge = document.getElementById('verified-badge');
+
+    if (conflictBox) conflictBox.classList.remove('hidden');
+    if (actionPills) actionPills.classList.remove('hidden');
+    if (resolvedBanner) resolvedBanner.classList.add('hidden');
+    if (verifiedBadge) verifiedBadge.classList.add('hidden');
+  }
+
+  function openEditModal() {
+    const customTime = prompt("Enter verified sleep start time:", "1:04 AM");
+    if (customTime) {
+      resolveVerification(customTime + " (Adjusted)");
+    }
+  }
+
+  function selectRating(buttonEl, label) {
+    const buttons = document.querySelectorAll('#energy-rating-group button');
+    buttons.forEach(btn => {
+      btn.className = "rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface transition-colors active:scale-95";
+    });
+    buttonEl.className = "rating-btn flex flex-col items-center justify-center py-2 px-1 rounded-lg bg-surface-container-highest text-primary font-semibold transition-colors active:scale-95";
+    
+    const ack = document.getElementById('subjective-ack');
+    if (ack) {
+      ack.textContent = 'Logged · ' + label;
+      ack.classList.remove('hidden');
+    }
+  }
+
+  function toggleChip(chip) {
+    const isActive = chip.classList.contains('active');
+    if (isActive) {
+      chip.classList.remove('active', 'bg-primary', 'text-on-primary');
+      chip.classList.add('bg-surface-container', 'text-on-surface');
+    } else {
+      chip.classList.add('active', 'bg-primary', 'text-on-primary');
+      chip.classList.remove('bg-surface-container', 'text-on-surface');
+    }
+  }
+</script></div></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface-container-lowest/85 backdrop-blur-xl shadow-[0_-8px_24px_rgba(0,0,0,0.35)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[44px] transition-colors text-primary font-semibold" data-path="today" href="#"><span class="material-symbols-outlined text-[22px]">wb_twilight</span><span class="font-label-caps text-label-caps tracking-wider uppercase">Today</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="experiments" href="#"><span class="material-symbols-outlined text-[22px]">science</span><span class="font-label-caps text-label-caps tracking-wider uppercase">Experiments</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="sleep-twin" href="#"><span class="material-symbols-outlined text-[22px]">bedtime</span><span class="font-label-caps text-label-caps tracking-wider uppercase">Sleep Twin</span></a><a class="flex flex-col items-center justify-center gap-1 min-w-[64px] min-h-[44px] text-on-surface-variant hover:text-on-surface transition-colors" data-path="device-hub" href="#"><span class="material-symbols-outlined text-[22px]">watch</span><span class="font-label-caps text-label-caps tracking-wider uppercase">Devices</span></a></div></nav></body></html>
