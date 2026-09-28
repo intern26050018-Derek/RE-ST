@@ -1,25 +1,43 @@
 {
   "expo": {
-    "name": "re-st-project",
-    "slug": "re-st-project",
+    "name": "RE:ST",
+    "slug": "re-st",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Logo_WithoutBG.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSHealthUpdateUsageDescription": "This app uses health data to provide sleep and recovery insights.",
+        "NSHealthShareUsageDescription": "This app needs access to read and write health data for sleep analysis.",
+        "NSMotionUsageDescription": "This app uses motion data to track sleep patterns."
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#063B4A",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "adaptiveIconMargin": 4,
+      "package": "com.rest.sleeprecovery",
+      "permissions": [
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "plugins": [
+      "expo-font",
+      "expo-screen-orientation",
+      "expo-linear-gradient"
+    ],
+    "extra": {
+      "supabaseUrl": "",
+      "supabaseAnonKey": ""
     }
   }
 }
