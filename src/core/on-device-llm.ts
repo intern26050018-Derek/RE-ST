@@ -3,6 +3,7 @@ import { Platform, Alert, ActivityIndicator, StyleSheet, View, Text } from "reac
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
 import { launchCameraAsync, pickImageAsync } from "expo-image-picker";
+import { Asset } from "expo-asset";
 
 // Model management for on-device LLM
 export type DecisionTier = "tier0" | "tier1" | "tier2" | "tier3";
@@ -45,22 +46,21 @@ export class OnDeviceLLM {
   private failureCount = 0;
   private maxFailures = 3;
 
-  // Download model from HuggingFace (Qwen3-1.7B Q4_K_M)
-  async downloadModel = async () => {
+  // Model filename - matches the extracted fine-tuned model
+  private readonly MODEL_FILENAME = "qwen3-1.7b.Q4_K_M.gguf";
+
+  // Initialize model - copy from bundled asset to document directory on first launch
+  async initializeModel = async () => {
     if (this.state !== "idle" && this.state !== "error") {
       return;
     }
 
     this.state = "downloading";
-    // Qwen3-1.7B Q4_K_M GGUF model
-    const modelUrl =
-      "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/qwen3-1.7b-q4_k_m.gguf";
+    const modelDir = FileSystem.documentDirectory + "models/";
+    const modelPath = modelDir + this.MODEL_FILENAME;
 
     try {
-      const modelDir = FileSystem.documentDirectory + "models/";
-      const modelPath = modelDir + "qwen3-1.7b-q4_k_m.gguf";
-
-      // Check if already downloaded
+      // Check if already exists in document directory
       const info = await FileSystem.getInfoAsync(modelPath);
       if (info.exists) {
         this.modelPath = modelPath;
@@ -72,28 +72,45 @@ export class OnDeviceLLM {
       // Create directory
       await FileSystem.makeDirectoryAsync(modelDir, { intermediates: true });
 
-      // Download with progress tracking
-      const download = FileSystem.downloadAsync(
-        modelUrl,
-        modelPath,
-        {
-          progress: (current, total) => {
-            const progress = Math.round((current / total) * 100);
-            // In production: update UI progress
-          },
+      // Try to load from bundled asset (for production builds)
+      // or copy from project models folder (for development)
+      const asset = Asset.fromModule(require("../../../models/qwen3-1.7b.Q4_K_M.gguf"));
+      await asset.downloadAsync();
+      
+      if (asset.localUri) {
+        // Copy from asset to document directory
+        await FileSystem.copyAsync({
+          from: asset.localUri,
+          to: modelPath,
+        });
+      } else {
+        // Fallback: try to copy from project models folder (dev only)
+        const projectModelPath = FileSystem.documentDirectory + "../models/" + this.MODEL_FILENAME;
+        const projectInfo = await FileSystem.getInfoAsync(projectModelPath);
+        if (projectInfo.exists) {
+          await FileSystem.copyAsync({
+            from: projectModelPath,
+            to: modelPath,
+          });
+        } else {
+          throw new Error("Model not found in bundled assets or project folder");
         }
-      );
+      }
 
-      const { uri } = await download;
-      this.modelPath = uri;
+      this.modelPath = modelPath;
       this.state = "ready";
       this.modelLoaded = true;
     } catch (error) {
       this.state = "error";
-      console.error("Model download failed:", error);
+      console.error("Model initialization failed:", error);
       // Fallback: use RTL guaranteed floor
       this.modelLoaded = false;
     }
+  };
+
+  // Legacy method name for backward compatibility
+  async downloadModel = async () => {
+    return this.initializeModel();
   };
 
   // Process text with on-device LLM
@@ -122,6 +139,14 @@ export class OnDeviceLLM {
 
     try {
       // In production: import and use llama.rn here
+      // import { llama } from '@react-native-ai/llama';
+      // const model = llama.languageModel(this.modelPath);
+      // await model.prepare();
+      // const { textStream } = streamText({ model, prompt: this.buildPrompt(context) });
+      // let fullText = '';
+      // for await (const delta of textStream) { fullText += delta; }
+      // return { text: fullText, confidence: 0.82, tier: "tier2", reactionTimeMs: Date.now() - startTime };
+
       // For now: simulate with RTL fallback with delay
       await React.wait(500); // Simulate model inference time
 
