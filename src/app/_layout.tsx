@@ -1,8 +1,7 @@
 import * as React from "react";
 import { View, StyleSheet, StatusBar } from "react-native";
 import { useColorScheme } from "react-native";
-import { Provider as RiverpodProvider } from "riverpod/react-native";
-import { router, RootTabRouteProtocol, RouterOutlet } from "expo-router";
+import { router } from "expo-router";
 
 // Brand colors from RE:ST design system
 const COLORS = {
@@ -36,12 +35,9 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   return (
-    <RiverpodProvider>
-      <View style={baseStyles.container}>
-        <StatusBar barStyle="light" backgroundColor={COLORS.obsidian} />
-        <RouterOutlet />
-      </View>
-    </RiverpodProvider>
+    <View style={baseStyles.container}>
+      <StatusBar barStyle="light-content" backgroundColor={COLORS.obsidian} />
+    </View>
   );
 }
 

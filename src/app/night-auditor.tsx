@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 24,
     margin: 20,
-    backdropFilter: "blur(20px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   section: {
     flexDirection: "row",

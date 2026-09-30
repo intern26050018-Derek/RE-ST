@@ -1,5 +1,3 @@
-import type { ConsentRecord, ConsentPurpose, ConsentStatus } from "./domain";
-
 // DPDP (Data Protection and Digital Privacy) Compliance Module
 
 export type ConsentPurpose =

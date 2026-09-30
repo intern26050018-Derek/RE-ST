@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(13, 25, 27, 0.8)",
     borderRadius: 16,
     padding: 16,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   cardTop: {
     flexDirection: "row",
@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 20,
     marginBottom: 20,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
     textAlign: "center",
   },
   unresolvedTitle: {

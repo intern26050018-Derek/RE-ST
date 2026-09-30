@@ -51,8 +51,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#071011",
   },
   revealContainer: {
-    padding: 40 20,
-    textAlign: "center",
+    padding: 40,
+    alignItems: "center",
     marginBottom: 32,
   },
   experimentComplete: {
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     height: 60,
     backgroundColor: "#D4AF6A",
     borderRadius: 30,
-    margin: "auto",
+    marginHorizontal: "auto",
     marginBottom: 20,
   },
   cta: {
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: "center",
     justifyContent: "center",
-    margin: 0 20,
+    marginHorizontal: 20,
   },
   twinButtonText: {
     color: "#0B5968",

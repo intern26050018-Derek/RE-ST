@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     backgroundColor: "rgba(13, 25, 27, 0.8)",
     borderRadius: 16,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   sectionTitle: {
     color: "#0B5968",
@@ -152,8 +152,8 @@ const styles = StyleSheet.create({
     padding: 16,
     marginHorizontal: 20,
     marginBottom: 20,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   frequencyText: {
     color: "#F6F1E8",

@@ -2,7 +2,7 @@ import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
 export default function DailyContext() {
-  const [context, setContext] = React.useState({
+  const [context, setContext] = React.useState<Record<string, boolean>>({
     caffeine: false,
     exercise: false,
     stress: false,

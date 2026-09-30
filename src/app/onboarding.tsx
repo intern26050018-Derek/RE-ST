@@ -1,6 +1,7 @@
 import * as React from "react";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useState } from "react";
+import { router } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 
 // Keep splash visible while onboarding is loading
@@ -65,7 +66,7 @@ export default function Onboarding() {
             marginTop: 24, 
             width: "100%",
             alignItems: "center" 
-          } onPress={handleCtaPress}>
+          }} onPress={handleCtaPress}>
             <Text style={{ color: "#F6F1E8", fontSize: 16, fontFamily: "Plus Jakarta Sans", fontWeight: 500 }}>{screenData.cta}</Text>
           </TouchableOpacity>
         </View>

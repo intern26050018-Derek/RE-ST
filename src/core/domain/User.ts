@@ -1,9 +1,19 @@
-import type { ConsentRecord, ConsentPurpose, ConsentStatus } from "./compliance";
-
 // Age gate - 18+ self-declared at launch
 export const AGE_GATE_ELIGIBLE = 18;
 
-// User profile with age gate, preferences, consent ledger
+// Consent types (defined locally to avoid circular import)
+export interface ConsentRecord {
+  id: string;
+  userId: string;
+  purpose: string;
+  grantedAt: string;
+  expiresAt?: string;
+  status: "granted" | "pending" | "withdrawn";
+  withdrawalStatus?: "pending" | "granted";
+  version: number;
+}
+
+// User preferences
 export interface UserPreferences {
   darkMode: boolean;
   measurements: "imperial" | "metric";
@@ -12,6 +22,7 @@ export interface UserPreferences {
   shareAnonymizedData: boolean;
 }
 
+// User profile with age gate, preferences, consent ledger
 export interface UserProfile {
   id: string;
   ageGateStatus: "eligible" | "ineligible" | "pending";
@@ -31,10 +42,18 @@ export const checkAgeGate = (age?: number): "eligible" | "ineligible" | "pending
   return "ineligible";
 };
 
-// Consent ledger integration with User
-export const initializeUser = (age?: number): UserProfile => {
+// Consent ledger interface (implemented in compliance.ts)
+export interface ConsentLedgerInterface {
+  recordConsent(purpose: string, status: string): any;
+  getConsent(purpose: string): any;
+  hasActiveConsent(purpose: string): boolean;
+  withdrawConsent(purpose: string): void;
+  getAllConsents(): any[];
+}
+
+// Initialize user (ledger passed in to avoid circular import)
+export const initializeUser = (age?: number, ledger?: any): UserProfile => {
   const status = checkAgeGate(age);
-  const ledger = new (await import("./compliance")).ConsentLedger();
 
   return {
     id: `user-${Date.now()}`,
@@ -46,7 +65,7 @@ export const initializeUser = (age?: number): UserProfile => {
       experimentFrequency: "weekly",
       shareAnonymizedData: false,
     },
-    consentLedger: ledger.getAllConsents(),
+    consentLedger: ledger?.getAllConsents?.() || [],
     createdAt: new Date().toISOString(),
     lastActive: new Date().toISOString(),
     streakCount: 0,

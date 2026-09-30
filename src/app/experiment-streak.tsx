@@ -99,8 +99,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255, 255, 255, 0.08)",
     marginHorizontal: 20,
     marginBottom: 12,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   celebrationIcon: {
     width: 40,

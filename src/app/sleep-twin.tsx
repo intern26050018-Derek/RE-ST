@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, Image } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 
 export default function SleepTwin() {
   // Sample data - would come from actual PersonalFactor calculations
@@ -41,13 +41,13 @@ export default function SleepTwin() {
       {/* Constellation Visualization (simplified) */}
       <View style={styles.visualization}>
         {/* Peacock Blue nodes */}
-        <View style={styles.node peacock} />
-        <View style={styles.node peacock} />
+        <View style={[styles.node, styles.peacock]} />
+        <View style={[styles.node, styles.peacock]} />
         {/* Mehendi Green nodes */}
-        <View style={styles.node mehendi} />
-        <View style={styles.node mehendi} />
+        <View style={[styles.node, styles.mehendi]} />
+        <View style={[styles.node, styles.mehendi]} />
         {/* Gold node (experiment-supported) */}
-        <View style={styles.node gold} />
+        <View style={[styles.node, styles.gold]} />
       </View>
 
       {/* Relationship Cards */}
@@ -56,10 +56,7 @@ export default function SleepTwin() {
           <View key={i} style={styles.card}>
             <View style={styles.cardHeader}>
               <Text style={styles.cardVariable}>{rel.variable}</Text>
-              <Image
-                source={require("../assets/chevron-right.png")}
-                style={styles.cardArrow}
-              />
+              <View style={styles.chevron} />
             </View>
             <View style={styles.cardDetails}>
               <Text style={styles.cardType}>{rel.type}</Text>
@@ -67,7 +64,7 @@ export default function SleepTwin() {
                 {rel.comparableNights} comparable nights
               </Text>
             </View>
-            <TouchableOpacity style={styles.cardArrow} onPress={() => console.log("See Evidence")}>
+            <TouchableOpacity style={styles.seeMoreBtn} onPress={() => console.log("See Evidence")}>
               <Text style={styles.cardSeeMore}>See Evidence</Text>
             </TouchableOpacity>
           </View>
@@ -126,13 +123,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#0B5968",
     left: 20,
     top: 60,
-    border: "2px solid #D4AF6A",
+    borderWidth: 2,
+    borderColor: "#D4AF6A",
   },
   mehendi: {
     backgroundColor: "#3F6F52",
     left: 60,
     top: 20,
-    border: "2px solid #D4AF6A",
+    borderWidth: 2,
+    borderColor: "#D4AF6A",
   },
   gold: {
     backgroundColor: "#D4AF6A",
@@ -149,8 +148,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(13, 25, 27, 0.8)",
     borderRadius: 16,
     padding: 16,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   cardHeader: {
     flexDirection: "row",
@@ -188,8 +187,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 20,
     marginBottom: 20,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
     alignItems: "center",
     textAlign: "center",
   },
@@ -199,5 +198,27 @@ const styles = StyleSheet.create({
     fontFamily: "Plus Jakarta Sans",
     fontWeight: 600,
     marginBottom: 4,
+  },
+  chevron: {
+    width: 20,
+    height: 20,
+    borderWidth: 2,
+    borderColor: "#929B98",
+    borderRadius: 10,
+    borderLeftWidth: 0,
+    borderBottomWidth: 0,
+    transform: [{ rotate: '45deg' }],
+    marginLeft: 8,
+  },
+  seeMoreBtn: {
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingHorizontal: 8,
+  },
+  cardSeeMore: {
+    color: "#E7C98F",
+    fontSize: 12,
+    fontFamily: "Plus Jakarta Sans",
+    fontWeight: 500,
   },
 });

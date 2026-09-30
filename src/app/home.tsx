@@ -1,8 +1,6 @@
 import * as React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
-import { useRecoilValue } from "recoil"; // Would use Riverpod in production
-import { rtlRegistry, TemplateCategory, TemplateKey } from "../core/rtl/registry";
-import { FactsObject } from "../core/domain";
+import type { FactsObject } from "../core/domain";
 
 // Mock data for demonstration
 const mockFacts: FactsObject = {
@@ -11,6 +9,14 @@ const mockFacts: FactsObject = {
   subjectiveRating: 4,
   likelyDrivers: ["Sleep Timing", "Late Caffeine", "Stress"],
   screenConflict: "none",
+};
+
+// Mock RTL registry (replace with actual import when rtl/registry is fixed)
+const rtlRegistry = {
+  get: (category: string, outcome: string) => ({ text: "Mock template" }),
+  render: (category: string, outcome: string, lang: string, params: any) => ({
+    text: `Recovery ${params.recovery_delta} — You recovered better than your usual week`,
+  }),
 };
 
 export default function Home() {
@@ -77,20 +83,20 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 32,
     margin: 20,
-    backdropFilter: "blur(20px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   recoveryScore: {
     fontSize: 48,
     fontFamily: "Plus Jakarta Sans",
-    fontWeight: 700,
+    fontWeight: "700",
     color: "#F6F1E8",
     marginBottom: 8,
   },
   baselineDelta: {
     fontSize: 18,
     fontFamily: "Plus Jakarta Sans",
-    fontWeight: 500,
+    fontWeight: "500",
     color: "#E7C98F",
   },
   evidencePills: {
@@ -118,14 +124,14 @@ const styles = StyleSheet.create({
     padding: 20,
     marginHorizontal: 20,
     marginBottom: 16,
-    backdropFilter: "blur(16px)",
-    border: "1px solid rgba(255, 255, 255, 0.12)",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.12)",
   },
   experimentTitle: {
     color: "#F6F1E8",
     fontSize: 16,
     fontFamily: "Plus Jakarta Sans",
-    fontWeight: 600,
+    fontWeight: "600",
     marginBottom: 8,
   },
   experimentProtocol: {
